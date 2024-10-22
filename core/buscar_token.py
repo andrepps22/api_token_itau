@@ -63,7 +63,7 @@ def buscar_token(crt, key, tipo_chamada, client_id=None, secret_key=None, header
                 'arquivos/certificado.crt', 'arquivos/certificado.key'))
             end = time.time()
 
-            duration_ms = (end - start) * 1000
+            duration_ms = (end - start)
 
             logger.info(
                 f"Tempo em milisegundos para registrar boleto: {duration_ms}")
