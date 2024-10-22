@@ -1,0 +1,1 @@
+2024-10-22 10:22:52,170 - Token - INFO - Requisição recebida ip Address(host='127.0.0.1', port=63634) no endpoint: http://localhost:8000/api/v2/itau/token/
