@@ -19,7 +19,7 @@ async def login_para_acess_token(
     async with db as session:
         user = await session.scalar(select(UsuarioModel).where(UsuarioModel.username == form_data.username))
 
-        if not user or not verify_password(form_data.password, user.senha):
+        if not user or not await verify_password(form_data.password, user.senha):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST, 
                 detail='Username ou senha incorretas')
