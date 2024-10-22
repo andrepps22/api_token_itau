@@ -7,9 +7,9 @@ import time
 def buscar_token(crt, key, tipo_chamada, client_id=None, secret_key=None, header: list = None, dados: dict = None):
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", handlers=[
-        logging.FileHandler("logs/tempo.log"), logging.StreamHandler()])
+        logging.FileHandler("logs/app.log"), logging.StreamHandler()])
 
-    logger = logging.getLogger("Token")
+   #logger = logging.getLogger("Token")
 
     with open('arquivos/certificado.crt', 'w') as file:
         file.write(crt)
@@ -34,9 +34,9 @@ def buscar_token(crt, key, tipo_chamada, client_id=None, secret_key=None, header
                 'arquivos/certificado.crt', 'arquivos/certificado.key'))
             end = time.time()
 
-            duration_ms = (end - start) * 1000
+            duration_ms = (end - start) 
 
-            logger.info(
+            logging.info(
                 f"Tempo em milisegundos para pegar o token: {duration_ms}")
 
             if 200 != response.status_code:
