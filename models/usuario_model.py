@@ -7,7 +7,7 @@ reg = setting.DBBaseModel
 class UsuarioModel:
     __tablename__ = 'usuario'
     
-    id: Mapped[int] = mapped_column(primary_key=True, init=False)
+    id: Mapped[int] = mapped_column(primary_key=True, init=False, autoincrement=True)
     username: Mapped[str] = mapped_column(unique=True)
     nome: Mapped[str] = mapped_column()
     email: Mapped[str] = mapped_column(unique=True)

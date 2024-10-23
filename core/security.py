@@ -31,7 +31,7 @@ async def get_token(dados:dict):
     to_encode.update({'exp':expire})
     
     encode_jwt = encode(to_encode, setting.JWT_SECRET, algorithm=setting.ALGORITHM)
-    return encode_jwt 
+    return encode_jwt
 
 async def get_current_user(
         db: AsyncSession = Depends(get_session),

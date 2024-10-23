@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
+from core.config import setting
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-
+from typing import List
 from core.deps import get_session
 from core.security import get_token, verify_password
 from models.usuario_model import UsuarioModel
@@ -24,7 +25,7 @@ async def login_para_acess_token(
                 status_code=status.HTTP_400_BAD_REQUEST, 
                 detail='Username ou senha incorretas')
     
-    access_token = await get_token({'sub': user.username})
+    access_token: List = await get_token({'sub': user.username})
 
-    return {'access_token': access_token, 'token_type':'Bearer'}
+    return {'access_token': access_token, 'token_type':'Bearer', 'expire': (setting.ACESS_TOKEN_EXPIRE_MINUTES * 60) }
         
