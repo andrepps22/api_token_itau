@@ -26,5 +26,5 @@ async def login_para_acess_token(
     
     access_token = await get_token({'sub': user.username})
 
-    return {'access_token': access_token, 'token_type':'Bearer', 'expire': (setting.ACESS_TOKEN_EXPIRE_MINUTES * 60) }
+    return {'access_token': access_token, 'token_type':'Bearer', 'expires_in': (setting.ACESS_TOKEN_EXPIRE_MINUTES * 60) }
         
